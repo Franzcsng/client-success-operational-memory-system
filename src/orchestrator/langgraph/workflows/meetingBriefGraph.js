@@ -8,6 +8,8 @@ export function createBriefGraph() {
   const graph = new StateGraph({
     channels: {
       context: null,
+      existingMemory: [],
+      
       signals: null,
       prioritizedSignals: null,
       memoryUpdates: null,

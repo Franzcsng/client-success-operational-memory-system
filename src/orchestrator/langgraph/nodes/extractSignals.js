@@ -1,8 +1,6 @@
 import { ChatOpenAI } from "@langchain/openai"
+import { llm } from "@/lib/llm"
 
-const llm = new ChatOpenAI({
-  model: "gpt-4o-mini",
-})
 
 export async function extractSignals(state) {
   const prompt = `
@@ -10,17 +8,21 @@ export async function extractSignals(state) {
 
   ${JSON.stringify(state.context)}
 
-  Return:
-  - risks
-  - issues
-  - action_items
-  - sentiment
+  Return ONLY valid JSON in this format:
+
+  {
+    "risks": [],
+    "issues": [],
+    "actionItems": [],
+    "sentiment": ""
+  }
   `
 
   const res = await llm.invoke(prompt)
+  const parsed = JSON.parse(res.content)
 
   return {
     ...state,
-    signals: res.content,
+    signals: parsed
   }
 }

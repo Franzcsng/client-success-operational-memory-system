@@ -1,7 +1,29 @@
-export const initialState = {
-  context: null,
-  signals: null,
-  prioritizedSignals: null,
-  memoryUpdates: null,
-  brief: null,
+export function createInitialState(context) {
+  return {
+    context,
+    existingMemory: [],
+    
+    signals: {
+      risks: [],
+      issues: [],
+      actionItems: [],
+      sentiment: "",
+    },
+
+    prioritizedSignals: {
+      criticalRisks: [],
+      topTalkingPoints: [],
+      priorities: [],
+    },
+
+    memoryUpdates: [],
+
+    brief: {
+      summary: "",
+      risks: [],
+      talkingPoints: [],
+      actionItems: [],
+    },
+  }
 }
+

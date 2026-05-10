@@ -1,18 +1,48 @@
+import { ChatOpenAI } from "@langchain/openai"
+import { llm } from "@/lib/llm"
+
+
 export async function updateMemory(state) {
-  const prompt = `
-  Identify recurring issues or long-term patterns:
+const prompt = `
+You are maintaining long-term operational memory for a client account.
 
-  ${state.signals}
+Analyze the meeting signals and identify:
 
-  Return structured memory updates.
-  `
+- recurring issues
+- operational risks
+- communication preferences
+- relationship insights
+- long-term patterns
 
-  const res = await llm.invoke(prompt)
+Return ONLY meaningful long-term memory items.
 
-  // later: write to Supabase here
+Return multiple memory updates if necessary.
 
-  return {
-    ...state,
-    memoryUpdates: res.content,
+Do NOT include temporary or low-value observations.
+
+Return ONLY valid JSON in this exact format:
+
+[
+  {
+    "memory_type": "risk",
+    "content": "Client repeatedly expressed frustration about response delays.",
+    "importance_score": 8,
+    "status": "active"
   }
+]
+
+SIGNALS:
+${JSON.stringify(state.signals)}
+
+EXISTING MEMORY:
+${JSON.stringify(state.existingMemory)}
+`
+
+    const res = await llm.invoke(prompt)
+    const parsed = JSON.parse(res.content)  
+
+    return {
+    ...state,
+    memoryUpdates: parsed,
+}
 }
