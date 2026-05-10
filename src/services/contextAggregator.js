@@ -1,15 +1,18 @@
-// import { getMockSlack } from "../mock-data/mockSlack"
-// import { getMockEmails } from "../mock-data/mockEmails"
-// import { getMockFathom } from "../mock-data/mockFathom"
+import { mockSlack } from "../mock-data/mockSlack"
+import { mockEmails } from "../mock-data/mockEmail"
+import { mockFathom } from "../mock-data/mockFathom"
+import { mockAirtableClient } from "../mock-data/mockAirtable"
 
-export async function aggregateClientContext(clientId) {
-//   const slack = await getMockSlack(clientId)
-//   const emails = await getMockEmails(clientId)
-//   const transcripts = await getMockFathom(clientId)
+export function aggregateClientContext(clientId) {
+  const slack =  mockSlack(clientId)
+  const emails =  mockEmails(clientId)
+  const transcripts =  mockFathom(clientId)
+ const clientInformation =  mockAirtableClient(clientId)
 
   return {
     slack,
     emails,
     transcripts,
+    clientInformation
   }
 }

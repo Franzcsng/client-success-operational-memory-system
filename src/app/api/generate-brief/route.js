@@ -1,6 +1,6 @@
 import { aggregateClientContext } from "@/services/contextAggregator"
 import { getClientMemory } from "@/services/memoryService"
-import { runBriefWorkflow } from "@/orchestrator/langgraph/runBriefWorkflow"
+import { runBriefWorkflow } from "@/orchestrator/langgraph/runWorkflow"
 
 export async function POST(req) {
   try {
@@ -9,10 +9,10 @@ export async function POST(req) {
     const { clientId } = body
 
     // 1. Aggregate context
-    const context = await aggregateClientContext(clientId)
+    const context = aggregateClientContext(clientId)
 
     // 2. Fetch memory
-    const existingMemory = await getClientMemory(clientId)
+    const existingMemory = getClientMemory(clientId)
 
     // 3. Run orchestration workflow
     const result = await runBriefWorkflow(

@@ -2,6 +2,7 @@ export const mockEmails = (clientId) => {
   return [
     {
       id: "email_1",
+      client_id: clientId,
       from: "client@company.com",
       subject: "Onboarding delay concern",
       body:
@@ -10,6 +11,7 @@ export const mockEmails = (clientId) => {
     },
     {
       id: "email_2",
+      client_id: clientId,
       from: "account.manager@atlas.com",
       subject: "Re: Onboarding update",
       body:
@@ -18,6 +20,7 @@ export const mockEmails = (clientId) => {
     },
     {
       id: "email_3",
+      client_id: clientId,
       from: "client@company.com",
       subject: "Weekly sync feedback",
       body:

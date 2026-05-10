@@ -20,7 +20,10 @@ Return multiple memory updates if necessary.
 
 Do NOT include temporary or low-value observations.
 
-Return ONLY valid JSON in this exact format:
+Return ONLY valid JSON 
+Do NOT wrap in markdown.
+Do NOT include \`\`\` or "json".    
+Return format:
 
 [
   {

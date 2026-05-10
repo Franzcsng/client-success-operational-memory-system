@@ -7,12 +7,15 @@ export async function rankSignals(state) {
 
   ${state.signals}
 
-  Return ONLY valid JSON in this format:
+  Return ONLY valid JSON 
+  Do NOT wrap in markdown.
+  Do NOT include \`\`\` or "json".    
+  Return format:
 
     {
         criticalRisks: [],
         topTalkingPoints: [],
-        priorities: [],
+        priorities: []
     }
   `
 

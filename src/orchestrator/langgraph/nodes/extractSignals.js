@@ -8,7 +8,10 @@ export async function extractSignals(state) {
 
   ${JSON.stringify(state.context)}
 
-  Return ONLY valid JSON in this format:
+  Return ONLY valid JSON 
+  Do NOT wrap in markdown.
+  Do NOT include \`\`\` or "json".    
+  Return format:
 
   {
     "risks": [],
