@@ -7,7 +7,7 @@ export function aggregateClientContext(clientId) {
   const slack =  mockSlack(clientId)
   const emails =  mockEmails(clientId)
   const transcripts =  mockFathom(clientId)
- const clientInformation =  mockAirtableClient(clientId)
+  const clientInformation =  mockAirtableClient(clientId)
 
   return {
     slack,
