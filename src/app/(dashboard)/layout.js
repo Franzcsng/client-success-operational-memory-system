@@ -6,8 +6,6 @@ import Footer from '@/components/footer/Footer'
 export default function DashboardLayout({children}){
     return(
         <div className={styles['dashboard-layout']}>
-            <Sidebar/>
-
             <div className={styles['dashboard-layout-outlet']}>
                 <Header/>
                 <div className={styles['dashboard-outlet']}>

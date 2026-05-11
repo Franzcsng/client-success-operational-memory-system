@@ -1,0 +1,76 @@
+.context-card{
+    width: 100%;
+    height: fit-content;
+    border-radius: 10px;
+    background-color: var(--background);
+    border: 1px solid #313131;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    transition: all 0.2s ease-in-out;
+
+    .context-head{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        border-bottom: 1px solid #313131;
+        padding-bottom: 6px;
+        
+        &.center{
+            padding-top: 6px;
+            margin-top: 20px;
+            border-top: 1px solid #313131;
+        }
+    }
+    .client{
+        border-radius: 4px;
+        font-size: 12px;
+        width: fit-content;
+        color: var(--text-secondary);
+        font-weight: 600;
+    }
+
+    .title{
+        color: white;
+        font-size: 16px;
+        font-weight: 600;
+    }
+
+
+    .context-body{
+        margin-top: 5px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .data{
+        color: #eaeaea;
+        font-size: 14px;
+        font-weight: 300;
+
+        span{
+            color: rgb(218, 218, 218);
+            font-weight: 600;
+        }
+    }
+
+    button{
+        border: 1px solid var(--text-secondary);
+        padding: 5px;
+        border-radius: 4px;
+        margin-top: 10px;
+        color: var(--text-secondary);
+        background-color: transparent;
+        transition: all 0.2s ease-in-out;
+        cursor: pointer;
+
+        &:hover{
+            background-color:rgb(0, 89, 0);
+        }
+    }
+}
