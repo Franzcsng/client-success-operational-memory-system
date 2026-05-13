@@ -1,9 +1,24 @@
+'use client'
 import styles from './layout.module.scss'
-import Sidebar from '@/components/sidebar/Sidebar.js'
 import Header from '@/components/header/Header'
 import Footer from '@/components/footer/Footer'
 
 export default function DashboardLayout({children}){
+
+    async function resetDemo(){
+        const confirmed = window.confirm(
+            "Reset all generated briefs and memory?"
+        )
+
+        if (!confirmed) return
+
+        await fetch("/api/reset-demo", {
+            method: "POST",
+        })
+
+    window.location.reload()
+    }
+
     return(
         <div className={styles['dashboard-layout']}>
             <div className={styles['dashboard-layout-outlet']}>
@@ -11,7 +26,7 @@ export default function DashboardLayout({children}){
                 <div className={styles['dashboard-outlet']}>
                     {children}
                 </div>
-                <Footer/>
+                <Footer resetDemo={resetDemo}/>
             </div>
         </div>
     )

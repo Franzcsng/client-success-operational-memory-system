@@ -15,4 +15,17 @@
         flex-direction: row;
         box-sizing: border-box;
     }
+
+    .empty-message{
+        width: 100%;
+        height: fit-content;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+        box-sizing: border-box;
+        justify-content: center;
+        align-items: center;
+        color: grey;
+        background-color: transparent;
+    }
 }
