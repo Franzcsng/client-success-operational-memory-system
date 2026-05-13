@@ -8,5 +8,5 @@ export default function HomePage() {
     redirect('/dashboard')
   }
 
-  redirect('/login')
+  redirect('/dashboard')
 }
