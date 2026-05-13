@@ -22,3 +22,13 @@ export async function upsertClientMemory(memoryRows) {
   if (error) throw error
   return data
 }
+
+export async function insertClientMemory(memoryRows) {
+  const { data, error } = await supabase
+    .from("client_memory")
+    .insert(memoryRows)
+    .select()
+
+  if (error) throw error
+  return data
+}

@@ -1,13 +1,12 @@
 import { supabase } from "@/lib/supabase"
 
-export async function saveMeetingBrief(brief) {
+export async function getClient(clientId) {
   const { data, error } = await supabase
-    .from("meeting_briefs")
-    .insert(brief)
-    .select()
+    .from("clients")
+    .select("*")
+    .eq("id", clientId)
     .single()
 
   if (error) throw error
   return data
 }
-
