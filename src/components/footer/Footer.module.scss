@@ -2,5 +2,49 @@
     height: 200px;
     background-color: var(--foreground);
     border-top: 1px solid #313131;
+    display: flex;
+    flex-wrap: wrap;
     width: 100%;
+    padding: 50px;
+    gap: 10px;
+
+    .footer-child{
+        display: flex;
+        flex: 1;
+        width: 100%;
+        min-width: 200px;
+        height: 100px;
+        flex-direction: column;
+
+        .logo-text{
+            font-size: 40px;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        .footer-info{
+            width: 100%;
+            text-align: center;
+            margin-bottom: 5px;
+            color: var(--text-secondary);
+        }
+
+        .reset-button{
+            border: 1px solid var(--text-secondary);
+            padding: 10px 15px;
+            border-radius: 4px;
+            margin-top: 10px;
+            max-width: 300px;
+            margin-left: auto;
+            font-size: 16px;
+            color: var(--text-secondary);
+            background-color: transparent;
+            transition: all 0.2s ease-in-out;
+            cursor: pointer;
+
+            &:hover{
+                background-color:rgb(0, 89, 0);
+            }
+        }
+    }
 }
