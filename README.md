@@ -1,5 +1,6 @@
 CLIENT SUCCESS OPERATIONAL MEMORY SYSTEM (CS-OMS)
 =======================================
+
 Overview
 
 This project explores how AI can build persistent operational memory for Client Success teams with fragmented context across multiple communication sources and generating evolving meeting intelligence.
@@ -20,6 +21,7 @@ By maintaining persistent memory, the system becomes aware of:
 
 
 =======================================
+
 Setup Instructions
 
 - Create Supabase project
@@ -29,6 +31,7 @@ Setup Instructions
 - Start development server
 
 =======================================
+
 Features
 
 1. Multi-source context (mocked integrations)
@@ -40,6 +43,7 @@ Features
 7. LangGraph-based orchestration workflow
 
 =======================================
+
 System Architecture
 
 1. Frontend Layer
@@ -67,6 +71,7 @@ System Architecture
     - Fathom
 
 =======================================
+
 AI Workflow
 
 1. Retrieve contextual signals from multiple sources
@@ -77,6 +82,7 @@ AI Workflow
 6. Persist memory + brief artifacts
 
 =======================================
+
 Database Schema 
 
 1. clients
@@ -97,6 +103,7 @@ This separation enables:
 - evolving client understanding
 
 =======================================
+
 Scale Considerations
 
 Current limitations:
@@ -113,6 +120,7 @@ Future improvements:
     - event-driven ingestion pipeline
 
 =======================================
+
 Tech Stack
 
 - Next.js (Frontend + API routes)
