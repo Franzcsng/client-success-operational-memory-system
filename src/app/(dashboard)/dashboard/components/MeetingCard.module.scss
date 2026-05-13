@@ -13,23 +13,27 @@
     cursor: pointer;
 
     &:hover{
-        border: 1px solid rgb(0, 89, 0);
+        border: 1px solid rgb(0, 93, 0);
     }
 
     &.active{
         border: 1px solid var(--text-secondary);
+        background-color: var(--foreground);
+        scale: 1.02;
     }
 
     .cardHead{
         width: 100%;
         display: flex;
         flex-direction: row;
-        justify-content: space-between
+        justify-content: space-between;
+        gap: 10px;
     }
     .status{
-        padding: 3px 10px;
+        height: fit-content;
+        padding: 3px 5px;
         border-radius: 4px;
-        font-size: 12px;
+        font-size: 10px;
         background-color: rgb(0, 89, 0);
         width: fit-content;
         color: var(--text-secondary);
@@ -39,13 +43,13 @@
 
     .title{
         color: white;
-        font-size: 16px;
+        font-size: 13px;
         font-weight: 600;
     }
 
     .date{
         color: #bfbfbf;
-        font-size: 16px;
+        font-size: 14px;
     }
 
     button{
@@ -56,10 +60,28 @@
         color: var(--text-secondary);
         background-color: transparent;
         transition: all 0.2s ease-in-out;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
         cursor: pointer;
 
         &:hover{
             background-color:rgb(0, 89, 0);
+        }
+
+        &:disabled {
+        opacity: 0.5;
+        cursor: default;
+
+            &:hover {
+                background-color: transparent;
+            }
+        }
+
+        .icons{
+            color: var(--text-secondary);
         }
     }
 }

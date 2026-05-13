@@ -1,6 +1,7 @@
 import styles from './MeetingCard.module.scss'
 
-export default function MeetingCard({title, date, status, onClick, generateBrief, isActive=false}){
+export default function MeetingCard({icon, title, date, status, onClick, generateBrief, isActive=false, disabled, buttonText}){
+        const Icon = icon
     return(
         <div onClick={onClick} className={`${styles['meeting-card']} ${isActive && styles['active']}`}>
             <div className={styles.cardHead}>
@@ -12,9 +13,15 @@ export default function MeetingCard({title, date, status, onClick, generateBrief
             <p className={styles.date}>{date}</p>
 
             <button 
+                disabled={disabled}
                 className={styles.button}
-                onClick={generateBrief}
-            > Generate Brief </button>
+                onClick={(e) => {
+                    e.stopPropagation()
+                    generateBrief()
+                    }}
+            >
+                <Icon className={styles['icons']}/>
+                {disabled ? 'Brief Generated' : buttonText ? buttonText : 'Generate Brief'} </button>
         </div>
     )
 }
