@@ -10,6 +10,7 @@ export async function rankSignals(state) {
   Return ONLY valid JSON 
   Do NOT wrap in markdown.
   Do NOT include \`\`\` or "json".    
+  - Every field MUST be populated based on available signals
   Return format:
 
     {
@@ -21,7 +22,7 @@ export async function rankSignals(state) {
 
     const res = await llm.invoke(prompt)
      const parsed = JSON.parse(res.content)
-
+console.log(parsed)
     return {
         ...state,
         prioritizedSignals: parsed,

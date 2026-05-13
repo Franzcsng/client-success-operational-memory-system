@@ -10,6 +10,12 @@ export const updateMemoryPrompt = (state) => `
     - relationship insights
     - long-term patterns
 
+    SIGNALS:
+    ${JSON.stringify(state.signals)}
+
+    EXISTING MEMORY:
+    ${JSON.stringify(state.existingMemory)}
+    
     Return ONLY meaningful long-term memory items.
 
     Return multiple memory updates if necessary.
@@ -30,9 +36,5 @@ export const updateMemoryPrompt = (state) => `
     }
     ]
 
-    SIGNALS:
-    ${JSON.stringify(state.signals)}
-
-    EXISTING MEMORY:
-    ${JSON.stringify(state.existingMemory)}
+    
 `

@@ -1,7 +1,7 @@
 
 
 export const extractSignalsPrompt = (state) => `
-      You are an AI operational intelligence analyst.
+      You are an AI operational client-relationship-success analyst.
 
         Your task:
         Extract operational signals from:

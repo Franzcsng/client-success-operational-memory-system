@@ -56,7 +56,7 @@ export default function Dashboard() {
 
     loadMemory()
     loadMeetings()
-  }, [])
+  }, [briefs])
 
   // LOAD BRIEF STATUS FOR TIMELINE
 

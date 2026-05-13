@@ -18,6 +18,8 @@ export async function POST(req) {
       context,
       existingMemory
     )
+
+    console.log(result)
     const cleanedMemory = deduplicateMemoryUpdates(
         existingMemory,
         result.memoryUpdates
