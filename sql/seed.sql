@@ -12,10 +12,9 @@ values (
 );
 
 -- =========================
--- 2. MEETINGS (PAST + FUTURE)
+-- 2. MEETINGS 
 -- =========================
 
--- Past Meeting 1
 insert into public.meetings (
   id, client_id, title, meeting_date, transcript_json
 )
@@ -30,7 +29,6 @@ values (
   }'::jsonb
 );
 
--- Past Meeting 2
 insert into public.meetings (
   id, client_id, title, meeting_date, transcript_json
 )
@@ -45,7 +43,6 @@ values (
   }'::jsonb
 );
 
--- Upcoming Meeting (THIS IS FOR YOUR BRIEF GENERATION TEST)
 insert into public.meetings (
   id, client_id, title, meeting_date, transcript_json
 )
@@ -57,50 +54,3 @@ values (
   null
 );
 
--- =========================
--- 3. MEETING BRIEFS (PAST ONLY)
--- =========================
-
--- Brief for Meeting 1
-insert into public.meeting_briefs (
-  id, meeting_id, executive_summary, risks, talking_points, action_items
-)
-values (
-  '55555555-5555-5555-5555-555555555555',
-  '22222222-2222-2222-2222-222222222222',
-  'Client is experiencing onboarding delays affecting internal rollout.',
-  '[
-    "Onboarding delay impacting launch timeline",
-    "Risk of client dissatisfaction increasing"
-  ]'::jsonb,
-  '[
-    "Review onboarding progress",
-    "Discuss internal bottlenecks"
-  ]'::jsonb,
-  '[
-    "Escalate onboarding issue to engineering",
-    "Provide ETA update to client"
-  ]'::jsonb
-);
-
--- Brief for Meeting 2
-insert into public.meeting_briefs (
-  id, meeting_id, executive_summary, risks, talking_points, action_items
-)
-values (
-  '66666666-6666-6666-6666-666666666666',
-  '33333333-3333-3333-3333-333333333333',
-  'Client continues to report slow response times and communication gaps.',
-  '[
-    "Perceived lack of responsiveness from team",
-    "Risk of churn if communication does not improve"
-  ]'::jsonb,
-  '[
-    "Response time improvements",
-    "Support process review"
-  ]'::jsonb,
-  '[
-    "Assign dedicated support contact",
-    "Improve SLA tracking"
-  ]'::jsonb
-);
