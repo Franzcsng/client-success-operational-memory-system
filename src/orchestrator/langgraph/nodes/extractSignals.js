@@ -1,27 +1,39 @@
-import { ChatOpenAI } from "@langchain/openai"
+import { extractSignalsPrompt } from "./prompts/extractSignals.prompt"
 import { llm } from "@/lib/llm"
 
 
 export async function extractSignals(state) {
-  const prompt = `
-  Extract key operational signals from this context:
+// const prompt = `
+//   You are an AI operational intelligence analyst.
 
-  ${JSON.stringify(state.context)}
+//   Your task:
+//   Extract operational signals from:
+//   1. Current meeting context
+//   2. Historical client memory
 
-  Return ONLY valid JSON 
-  Do NOT wrap in markdown.
-  Do NOT include \`\`\` or "json".    
-  Return format:
+//   Current Meeting Context:
+//   ${JSON.stringify(state.context, null, 2)}
 
-  {
-    "risks": [],
-    "issues": [],
-    "actionItems": [],
-    "sentiment": ""
-  }
-  `
+//   Historical Client Memory:
+//   ${JSON.stringify(state.existingMemory, null, 2)}
 
-  const res = await llm.invoke(prompt)
+//   Rules:
+//   - Return ONLY valid JSON
+//   - No markdown
+//   - No explanations
+//   - No code fences
+//   - No extra text
+
+//   Return format:
+
+//   {
+//     "risks": [],
+//     "issues": [],
+//     "actionItems": [],
+//     "sentiment": ""
+//   }
+// `
+  const res = await llm.invoke(extractSignalsPrompt(state))
   const parsed = JSON.parse(res.content)
 
   return {
